@@ -50,12 +50,13 @@ function getChartConfig() {
 
 function getChartScales(data, config) {
     let { width, height } = config;
-    let yearExtent = d3.extent(data, d => new Date(+d.year, 0, 1));
+    let yearStart = d3.min(data, d => +d.year);
+    let yearEnd = d3.max(data, d => +d.year);
     let maxAttendance = d3.max(data, d => +d.value);
 
     let xScale = d3.scaleTime()
         .range([0, width])
-        .domain(yearExtent);
+        .domain([new Date(yearStart - 3, 0, 1), new Date(yearEnd + 3, 0, 1)]);
 
     let yScale = d3.scaleLinear()
         .range([height, 0])
@@ -106,6 +107,7 @@ function drawChart(groupedData, scales, config) {
 function drawAxes(scales, config){
     let {xScale, yScale} = scales
     let {svg, margin, canvasHeight} = config;
+    
     let axisX = d3.axisBottom(xScale)
                   .ticks(8)
   
