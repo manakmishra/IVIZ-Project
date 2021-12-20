@@ -29,8 +29,8 @@ function showData() {
 
     console.log({rawData, groupedData});
 
-    drawChart(groupedData, scales, config);
     drawAxes(scales, config);
+    drawChart(groupedData, scales, config);
     //drawLegend(scales, config);
 }
 
@@ -106,10 +106,26 @@ function drawChart(groupedData, scales, config) {
 
 function drawAxes(scales, config){
     let {xScale, yScale} = scales
-    let {svg, margin, canvasHeight} = config;
+    let {svg, margin, canvasHeight, canvasWidth, width} = config;
     
     let axisX = d3.axisBottom(xScale)
-                  .ticks(8)
+        .ticks(8)
+
+    let axisY = d3.axisLeft(yScale)
+        .ticks(8)
+        .tickFormat(d3.format(".1s"));
+
+    let axisGridY = d3.axisLeft(yScale)
+        .ticks(8)
+        .tickFormat('')
+        .tickSize(-width);
+
+    svg.append('g')
+        .attr('id', 'y-axis-grid')
+        .style("transform", 
+            `translate(${margin.left}px,${margin.top}px)`
+        )
+        .call(axisGridY);
   
     svg.append("g")
         .attr("id", "x-axis")
@@ -117,11 +133,6 @@ function drawAxes(scales, config){
             `translate(${margin.left}px,${canvasHeight - margin.bottom}px)`
         )
         .call(axisX)
-  
-    let formatValue = d3.format(".1s");
-    let axisY = d3.axisLeft(yScale)
-        .ticks(8)
-        .tickFormat(formatValue);
 
     svg.append("g")
         .attr("id", "y-axis")
