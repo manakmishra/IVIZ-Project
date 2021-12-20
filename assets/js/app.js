@@ -31,12 +31,12 @@ function showData() {
 
     drawAxes(scales, config);
     drawChart(groupedData, scales, config);
-    //drawLegend(scales, config);
+    drawLegend(scales, config);
 }
 
 function getChartConfig() {
     let canvasWidth = 1280, canvasHeight = 640;
-    let margin = { top: 50, right: 90, bottom: 80, left: 25 };
+    let margin = { top: 50, right: 90, bottom: 80, left: 75 };
 
     let width = canvasWidth - margin.left - margin.right;
     let height = canvasHeight - margin.top - margin.bottom;
@@ -106,7 +106,7 @@ function drawChart(groupedData, scales, config) {
 
 function drawAxes(scales, config){
     let {xScale, yScale} = scales
-    let {svg, margin, canvasHeight, canvasWidth, width} = config;
+    let {svg, margin, canvasHeight, canvasWidth, width, height} = config;
     
     let axisX = d3.axisBottom(xScale)
         .ticks(8)
@@ -134,12 +134,28 @@ function drawAxes(scales, config){
         )
         .call(axisX)
 
+    svg.append("text")  
+        .attr("id", "x-axis-label")
+        .style("transform", 
+            `translate(${width * 0.5 + margin.left}px,${height + margin.top + 40}px)`
+        )
+        .style("text-anchor", "middle")
+        .text("YEAR");
+
     svg.append("g")
         .attr("id", "y-axis")
         .style("transform", 
             `translate(${margin.left}px,${margin.top}px)`
         )
         .call(axisY)
+
+    svg.append("text")
+        .attr("id", "y-axis-label")    
+        .style("text-anchor", "middle")
+        .style("transform", 
+            `translate(${margin.left - 40}px,${canvasHeight * 0.5}px) rotate(-90deg)`
+        )
+        .text("PATIENTS ADMITTED");
 }
 
 function drawLegend(scales, config) {
