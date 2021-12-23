@@ -1,31 +1,46 @@
 .iframeContainer {
-    padding: 20px;
-    border: 1px solid #e3e3e3;
-  }
-  
-  html {
-    position: relative;
-    min-height: 100%;
-  }
-  
-  body {
-    /* Padding bottom by footer height */
-    padding-bottom: 80px;
-  }
-  
-  #footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%; /* Set the fixed height of the footer here */
-    height: 10px;
-    padding-top: 20px;
-    padding-bottom: 40px;
-    text-align: center;
-    background-color: #f5f5f5;
-  }
-  
-  #footer a {
-    color: black;
-    margin: 0;
-    font-size: 16px;
-  }
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Padding bottom by footer height */
+  padding-bottom: 80px;
+  background-color: honeydew;
+}
+
+#header {
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+#footer a {
+  color: white;
+  margin: 0;
+  font-size: 16px;
+}
+
+#tooltip {
+  border: solid 1px gray;
+  padding: 3px;
+  position: absolute;
+  display: none;
+}
