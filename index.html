@@ -2,49 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Information Visualization Project</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/d3Style.css">
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="./assets/js/app.js"></script>
+  <meta charset="utf-8">
+  <title>Information Visualization Project</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/d3Style.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="./assets/js/app.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-12">
-            <h1>Information Visualization 2021</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12  col-md-9">
-            <svg id="canvas">
-              <!-- We append our chart here. -->
-            </svg>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12  col-md-9">
-            <div class="article">
-              <h2>Hospital Admissions And Public Sector Outpatient Attendances, Annual</h2>
-              <p> Put main takeaways from the visualizations (Point 1) </p>
-              <p> (Point 2) </p>
-              <p> (Point 3) </p>
-            </div>
-          </div>
-        </div>
-    </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
+    <!-- Navbar content -->
+    <h1>Information Visualization 2021</h1>
+  </nav>
+  <br />
+  <br />
+  <div class="container">
 
-      <!-- Footer-->
-    <div id="footer">
-        <a href="https://github.com/manakmishra/IVIZ-Project">View source on Github</a>
-    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <h2>Hospital Admissions And Public Sector Outpatient Attendances, Annual</h2>
 
-    <script>
-        loadData().then(showData)
-    </script>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-md-9" id="visual-chart">
+        <svg id="canvas">
+          <!-- We append our chart here. -->
+        </svg>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-xs-12  col-md-9">
+        <div class="article">
+
+          <h3>Key Takeaways from these records:</h3>
+          <ul>
+            <li>
+              <p> Sharp Increase and Decrease during 2013-2015 for Special Outpatient Admissions. </p>
+            </li>
+            <li>
+              <p> No recorded data for patients for Psychiatric Hospitals Admissions.</p>
+            </li>
+            <li>
+              <p> Special Outpatient Admissions and Polyclinics have the highest number of patients among all, so should
+                be
+                given more attention for betterment. </p>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <footer id="footer" class="text-center text-lg-start bg-dark text-muted">
+    <a href="https://github.com/manakmishra/IVIZ-Project">View source on Github</a>
+  </footer>
+
+  <script>
+    loadData().then(showData)
+  </script>
 </body>
 
 </html>
